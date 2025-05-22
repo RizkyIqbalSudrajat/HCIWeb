@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AR Furniture - Toko Furniture Modern</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>AR Furniture</h1>
+      <p>Lihat dan rasakan furniture langsung di rumahmu dengan teknologi AR!</p>
+      <a href="https://rajendriyawijaya.8thwall.app/hci-project/" class="cta-button" target="_blank" rel="noopener noreferrer">Coba AR Sekarang</a>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section class="about">
+    <h2>Tentang Kami</h2>
+    <p>Kami adalah toko furniture modern yang menggabungkan desain, kenyamanan, dan teknologi augmented reality. Coba produk kami secara virtual sebelum membeli!</p>
+  </section>
+
+  <!-- Fitur -->
+  <section class="features">
+    <h2>Kenapa Pilih Kami?</h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <h3>Visualisasi Realistis</h3>
+        <p>Furniture bisa dilihat langsung di ruangan Anda lewat kamera smartphone.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Koleksi Eksklusif</h3>
+        <p>Desain unik dan elegan yang hanya tersedia di AR Furniture.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Mudah Digunakan</h3>
+        <p>UI sederhana yang cocok untuk semua usia dan pengalaman pengguna.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slider Gambar -->
+  <section class="image-slider">
+    <div class="slider-container">
+      <div class="slides">
+        <img src="room1.jpg" alt="Foto Ruangan 1" class="slide active" />
+        <img src="room2.jpg" alt="Foto Ruangan 2" class="slide" />
+        <img src="room3.jpg" alt="Foto Ruangan 3" class="slide" />
+      </div>
+      <div class="dots"></div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2>Siap Dekorasi Rumahmu?</h2>
+    <p>Yuk, mulai pengalaman belanja furniture canggih bersama AR Furniture!</p>
+    <a href="https://rajendriyawijaya.8thwall.app/hci-project/" class="cta-button" target="_blank" rel="noopener noreferrer">Mulai Sekarang</a>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.dots');
+    let currentIndex = 0;
+
+    // Buat dot indikator sesuai jumlah slide
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        showSlide(currentIndex);
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    // Auto slide setiap 5 detik
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 5000);
+  </script>
+</body>
+</html>
