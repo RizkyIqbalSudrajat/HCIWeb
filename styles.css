@@ -13,7 +13,75 @@ body {
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
-  padding: 0 16px;
+  padding: 0;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: rgba(139, 94, 60, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.header.sticky {
+  padding: 15px 10%;
+  background: rgba(139, 94, 60, 0.95);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.navigation ul li {
+  margin-left: 30px;
+}
+
+.navigation ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navigation ul li a:hover {
+  color: #f1f1f1;
+  border-bottom: 2px solid white;
+}
+
+.mobile-menu {
+  display: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Hero Section */
@@ -21,7 +89,9 @@ body {
   background: linear-gradient(135deg, #8B5E3C, #A87C52);
   color: white;
   text-align: center;
-  padding: 60px 0;
+  padding: 150px 0 60px;
+  border-radius: 0 0 20px 20px;
+  margin-top: 0;
 }
 
 .hero-content {
@@ -67,11 +137,28 @@ body {
 /* CTA Section Button */
 .cta .cta-button {
   background: linear-gradient(135deg, #C19A6B, #A87C52);
+  color: white;
+  border: none;
+  padding: 16px 28px; /* padding ditambah untuk memperbesar tombol */
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  margin: 30px 0 10px; /* menambahkan jarak dari elemen atas dan bawah */
 }
 
 .cta .cta-button:hover {
   background: linear-gradient(135deg, #A87C52, #8B5E3C);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
+
 
 /* Section Umum */
 section {
@@ -79,7 +166,7 @@ section {
   text-align: center;
 }
 
-.about, .features, .cta {
+.about, .features {
   background-color: white;
 }
 
@@ -136,6 +223,8 @@ section {
 .cta {
   background: linear-gradient(135deg, #A87C52, #8B5E3C);
   color: white;
+  border-radius: 20px 20px 0 0;
+  margin-top: 40px;
 }
 
 /* Slider Gambar */
@@ -201,7 +290,7 @@ section {
 /* Responsive Layout */
 @media (min-width: 768px) {
   body {
-    padding: 0 48px;
+    padding: 0;
   }
 
   .hero-content h1 {
@@ -247,9 +336,91 @@ section {
   }
 }
 
-/* Responsive slider untuk mobile */
+@media (max-width: 991px) {
+  .header {
+    padding: 15px 5%;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(139, 94, 60, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s ease;
+  }
+  
+  .navigation.active {
+    left: 0;
+  }
+  
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navigation ul li {
+    margin: 15px 0;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .hero {
+    padding: 120px 0 60px;
+  }
+}
+
 @media (max-width: 767px) {
   .slider-container {
     max-height: 300px;
   }
+  
+  .hero {
+    border-radius: 0 0 15px 15px;
+    padding: 100px 0 40px;
+  }
+  
+  .cta {
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+}
+.footer {
+  background-color: #8B5E3C;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 5px solid #A87C52;
+}
+
+.footer h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.footer ul li {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: #f1f1f1;
 }

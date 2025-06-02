@@ -6,25 +6,47 @@
   <title>AR Furniture - Toko Furniture Modern</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <!-- Header/Navigation -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>AR Furniture</h1>
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#features">Fitur</a></li>
+          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
       <h1>AR Furniture</h1>
       <p>Lihat dan rasakan furniture langsung di rumahmu dengan teknologi AR!</p>
-      <a href="https://rajendriyawijaya.8thwall.app/hci-project/" class="cta-button" target="_blank" rel="noopener noreferrer">Coba AR Sekarang</a>
+      <a href="https://rajendriyawijaya.staging.8thwall.app/hci-project/" class="cta-button" target="_blank" rel="noopener noreferrer">Coba AR Sekarang</a>
     </div>
   </section>
 
   <!-- Tentang Kami -->
-  <section class="about">
+  <section class="about" id="about">
     <h2>Tentang Kami</h2>
     <p>Kami adalah toko furniture modern yang menggabungkan desain, kenyamanan, dan teknologi augmented reality. Coba produk kami secara virtual sebelum membeli!</p>
   </section>
 
   <!-- Fitur -->
-  <section class="features">
+  <section class="features" id="features">
     <h2>Kenapa Pilih Kami?</h2>
     <div class="feature-list">
       <div class="feature-item">
@@ -43,7 +65,7 @@
   </section>
 
   <!-- Slider Gambar -->
-  <section class="image-slider">
+  <section class="image-slider" id="gallery">
     <div class="slider-container">
       <div class="slides">
         <img src="room1.jpg" alt="Foto Ruangan 1" class="slide active" />
@@ -55,13 +77,35 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta">
+  <section class="cta" id="contact">
     <h2>Siap Dekorasi Rumahmu?</h2>
     <p>Yuk, mulai pengalaman belanja furniture canggih bersama AR Furniture!</p>
-    <a href="https://rajendriyawijaya.8thwall.app/hci-project/" class="cta-button" target="_blank" rel="noopener noreferrer">Mulai Sekarang</a>
+      <a href="https://rajendriyawijaya.8thwall.app/hci-project/" class="cta-button" target="_blank" rel="noopener noreferrer">Mulai Sekarang</a>
   </section>
 
   <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navigation = document.querySelector('.navigation');
+    
+    mobileMenu.addEventListener('click', () => {
+      navigation.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        navigation.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Slider Functionality
     const slides = document.querySelectorAll('.slide');
     const dotsContainer = document.querySelector('.dots');
     let currentIndex = 0;
@@ -93,6 +137,27 @@
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
     }, 5000);
+
+    // Sticky Header on Scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+    
   </script>
+  <!-- Footer / Kontak Person -->
+<footer class="footer">
+  <div class="footer-container">
+    <h2>Anggota Kami</h2>
+    <ul>
+      <li>Rizky Iqbal Sudrajat</li>
+      <li>Ivanna Putri Paramitha</li>
+      <li>Godwin Clief Fernando Mclay</li>
+      <li>Rajendriya Agung Arya Wijaya</li>
+    </ul>
+    <p>&copy; 2025 AR Furniture. All rights reserved.</p>
+  </div>
+</footer>
+
 </body>
 </html>
