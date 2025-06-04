@@ -227,7 +227,8 @@
 
         .card-image {
             height: 0;
-            padding-bottom: 75%; /* 4:3 aspect ratio */
+            padding-bottom: 75%;
+            /* 4:3 aspect ratio */
             overflow: hidden;
             position: relative;
         }
@@ -273,15 +274,15 @@
                 gap: 25px;
                 padding: 0 20px;
             }
-            
+
             .card-content {
                 padding: 25px;
             }
-            
+
             .card-content h3 {
                 font-size: 1.2rem;
             }
-            
+
             .card-content p.role {
                 font-size: 1rem;
             }
@@ -291,16 +292,16 @@
             .team-title h1 {
                 font-size: 2.5rem;
             }
-            
+
             .team-title p {
                 font-size: 1.1rem;
             }
-            
+
             .team-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
             }
-            
+
             .card-content h3 {
                 font-size: 1.3rem;
             }
@@ -310,9 +311,10 @@
             .team-container {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
+
             .card-image {
-                padding-bottom: 100%; /* 1:1 aspect ratio */
+                padding-bottom: 100%;
+                /* 1:1 aspect ratio */
             }
         }
 
@@ -322,11 +324,11 @@
                 max-width: 400px;
                 padding: 0 10px;
             }
-            
+
             .card-content h3 {
                 font-size: 1rem;
             }
-            
+
             .card-content p.role {
                 font-size: 0.85rem;
             }
@@ -337,6 +339,7 @@
                 max-width: 350px;
             }
         }
+
         /* Back Button */
         .back-button {
             display: inline-block;
@@ -363,58 +366,64 @@
 
     <!-- Header -->
     <header class="header">
-    <div class="container">
-      <div class="logo">
-        <h1>AR Furniture</h1>
-      </div>
-      <nav class="dropdown-nav">
-        <button class="dropdown-button" aria-expanded="false" aria-controls="dropdown-content">
-          <span>Menu</span>
-          <i class="fas fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="dropdown-content" role="menu" aria-hidden="true">
-          <div class="dropdown-item" id="ensiklopedia-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
-            Ensiklopedia
-            <i class="fas fa-caret-right" id="ensiklopedia-icon"></i>
-          </div>
-          <div class="dropdown-subcontent" id="ensiklopedia-content" role="menu" aria-label="Ensiklopedia submenu">
-            <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
-              Sofa dan Kursi
-              <i class="fas fa-caret-right subcategory-icon"></i>
+        <div class="container">
+            <div class="logo">
+                <h1>Furniture Joss</h1>
             </div>
-            <div class="dropdown-subcontent subcategory-content">
-              <a href="katun.html" role="menuitem" tabindex="-1">Katun</a>
-              <a href="polyester.html" role="menuitem" tabindex="-1">Polyester</a>
-              <a href="kulitsintesis.html" role="menuitem" tabindex="-1">Kulit Sintesis</a>
-            </div>
-            
-            <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
-              Meja dan Lemari
-              <i class="fas fa-caret-right subcategory-icon"></i>
-            </div>
-            <div class="dropdown-subcontent subcategory-content">
-              <a href="MDF.html" role="menuitem" tabindex="-1">MDF</a>
-              <a href="marmer.html" role="menuitem" tabindex="-1">Marmer</a>
-              <a href="particleboard.html" role="menuitem" tabindex="-1">Particle Board</a>
-              <a href="mahoni.html" role="menuitem" tabindex="-1">Mahoni</a>
-              <a href="jati.html" role="menuitem" tabindex="-1">Jati</a>
-            </div>
-            
-            <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
-              Kasur - Springbed
-              <i class="fas fa-caret-right subcategory-icon"></i>
-            </div>
-            <div class="dropdown-subcontent subcategory-content">
-              <a href="springbed.html" role="menuitem" tabindex="-1">Springbed</a>
-            </div>
-          </div>
-          <div class="dropdown-item" style="cursor:pointer;" tabindex="0">
-            <a href="anggota.html" style="color:#8B5E3C; text-decoration:none;" role="menuitem">Anggota Kami</a>
-          </div>
+            <nav class="dropdown-nav">
+                <button class="dropdown-button" aria-expanded="false" aria-controls="dropdown-content">
+                    <span>Menu</span>
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="dropdown-content" role="menu" aria-hidden="true">
+                    <div class="dropdown-item" id="ensiklopedia-header" tabindex="0" aria-haspopup="true"
+                        aria-expanded="false">
+                        Informasi Material
+                        <i class="fas fa-caret-right" id="ensiklopedia-icon"></i>
+                    </div>
+                    <div class="dropdown-subcontent" id="ensiklopedia-content" role="menu"
+                        aria-label="Ensiklopedia submenu">
+                        <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true"
+                            aria-expanded="false">
+                            Sofa dan Kursi
+                            <i class="fas fa-caret-right subcategory-icon"></i>
+                        </div>
+                        <div class="dropdown-subcontent subcategory-content">
+                            <a href="katun.html" role="menuitem" tabindex="-1">Katun</a>
+                            <a href="polyester.html" role="menuitem" tabindex="-1">Polyester</a>
+                            <a href="kulitsintesis.html" role="menuitem" tabindex="-1">Kulit Sintesis</a>
+                        </div>
+
+                        <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true"
+                            aria-expanded="false">
+                            Meja dan Lemari
+                            <i class="fas fa-caret-right subcategory-icon"></i>
+                        </div>
+                        <div class="dropdown-subcontent subcategory-content">
+                            <a href="MDF.html" role="menuitem" tabindex="-1">MDF</a>
+                            <a href="marmer.html" role="menuitem" tabindex="-1">Marmer</a>
+                            <a href="particleboard.html" role="menuitem" tabindex="-1">Particle Board</a>
+                            <a href="mahoni.html" role="menuitem" tabindex="-1">Mahoni</a>
+                            <a href="jati.html" role="menuitem" tabindex="-1">Jati</a>
+                        </div>
+
+                        <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true"
+                            aria-expanded="false">
+                            Kasur
+                            <i class="fas fa-caret-right subcategory-icon"></i>
+                        </div>
+                        <div class="dropdown-subcontent subcategory-content">
+                            <a href="springbed.html" role="menuitem" tabindex="-1">Springbed</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item" style="cursor:pointer;" tabindex="0">
+                        <a href="anggota.html" style="color:#8B5E3C; text-decoration:none;" role="menuitem">Anggota
+                            Kami</a>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
-  </header>
+    </header>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -422,7 +431,7 @@
             <h1>Tim Kami</h1>
             <p>Orang-orang kreatif di balik AR Furniture</p>
         </div>
-        
+
         <div class="team-container">
             <!-- Anggota 1 -->
             <div class="team-card">
@@ -467,7 +476,7 @@
                     <p class="role">Design interior AR</p>
                 </div>
             </div>
-                    <a href="index.html" class="back-button" aria-label="Kembali ke Beranda">← Kembali ke Beranda</a>
+            <a href="index.html" class="back-button" aria-label="Kembali ke Beranda">← Kembali ke Beranda</a>
 
         </div>
     </div>
