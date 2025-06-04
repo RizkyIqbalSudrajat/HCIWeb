@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detail Katun - AR Furniture</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Reset & Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        ul,
+        li,
+        button,
+        a {
+            font-family: 'Poppins', sans-serif;
+            color: #4B3B26;
+            /* coklat tua */
+        }
+
+        body {
+            background-color: #FAF6F0;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: 60px;
+            /* Header fixed height */
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 10%;
+            background: rgba(139, 94, 60, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Dropdown Navigation */
+        .dropdown-nav {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-button {
+            background: linear-gradient(135deg, #D4A373, #B5834F);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-button:hover {
+            background: linear-gradient(135deg, #B5834F, #A87C52);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-button .fa-caret-down {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-button.active .fa-caret-down {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: rgba(255 255 255 / 0.95);
+            min-width: 300px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 101;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            animation: fadeIn 0.3s ease;
+            color: #8B5E3C;
+            user-select: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 8px 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            color: #8B5E3C;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0e4d7;
+            color: #5a3e1a;
+        }
+
+        .dropdown-subcontent {
+            display: none;
+            margin-top: 8px;
+            padding-left: 15px;
+            border-left: 2px solid #B5834F;
+            color: #5a3e1a;
+        }
+
+        .dropdown-subcontent a {
+            display: block;
+            padding: 5px 0;
+            color: #5a3e1a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-subcontent a:hover {
+            color: #8B5E3C;
+            padding-left: 5px;
+        }
+
+        /* Main content styling */
+        .content-wrapper {
+            max-width: 800px;
+            margin: 40px auto 60px;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(181, 145, 86, 0.3);
+        }
+
+        .content-wrapper h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #4B3B26;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-wrapper h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #7F5F3B;
+        }
+
+        .content-wrapper p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #5a4a34;
+            line-height: 1.5;
+        }
+
+        .content-wrapper ul {
+            list-style: disc inside;
+            margin-bottom: 20px;
+            color: #5a4a34;
+        }
+
+        .content-wrapper ul li {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B5834F, #D4A373);
+            color: white;
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, #A87C52, #B5834F);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 5%;
+            }
+
+            .dropdown-content {
+                min-width: 250px;
+                right: 5%;
+            }
+
+            .content-wrapper {
+                margin: 20px 15px 40px;
+                padding: 25px 20px;
+            }
+
+            .content-wrapper h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-wrapper h2 {
+                font-size: 1.3rem;
+            }
+
+            .content-wrapper p,
+            .content-wrapper ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>AR Furniture</h1>
+      </div>
+      <nav class="dropdown-nav">
+        <button class="dropdown-button" aria-expanded="false" aria-controls="dropdown-content">
+          <span>Menu</span>
+          <i class="fas fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="dropdown-content" role="menu" aria-hidden="true">
+          <div class="dropdown-item" id="ensiklopedia-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
+            Ensiklopedia
+            <i class="fas fa-caret-right" id="ensiklopedia-icon"></i>
+          </div>
+          <div class="dropdown-subcontent" id="ensiklopedia-content" role="menu" aria-label="Ensiklopedia submenu">
+            <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
+              Sofa dan Kursi
+              <i class="fas fa-caret-right subcategory-icon"></i>
+            </div>
+            <div class="dropdown-subcontent subcategory-content">
+              <a href="katun.html" role="menuitem" tabindex="-1">Katun</a>
+              <a href="polyester.html" role="menuitem" tabindex="-1">Polyester</a>
+              <a href="kulitsintesis.html" role="menuitem" tabindex="-1">Kulit Sintesis</a>
+            </div>
+            
+            <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
+              Meja dan Lemari
+              <i class="fas fa-caret-right subcategory-icon"></i>
+            </div>
+            <div class="dropdown-subcontent subcategory-content">
+              <a href="MDF.html" role="menuitem" tabindex="-1">MDF</a>
+              <a href="marmer.html" role="menuitem" tabindex="-1">Marmer</a>
+              <a href="particleboard.html" role="menuitem" tabindex="-1">Particle Board</a>
+              <a href="mahoni.html" role="menuitem" tabindex="-1">Mahoni</a>
+              <a href="jati.html" role="menuitem" tabindex="-1">Jati</a>
+            </div>
+            
+            <div class="dropdown-item subcategory-header" tabindex="0" aria-haspopup="true" aria-expanded="false">
+              Kasur - Springbed
+              <i class="fas fa-caret-right subcategory-icon"></i>
+            </div>
+            <div class="dropdown-subcontent subcategory-content">
+              <a href="springbed.html" role="menuitem" tabindex="-1">Springbed</a>
+            </div>
+          </div>
+          <div class="dropdown-item" style="cursor:pointer;" tabindex="0">
+            <a href="anggota.html" style="color:#8B5E3C; text-decoration:none;" role="menuitem">Anggota Kami</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+    <!-- Content: Kulit Sintetis -->
+    <main class="content-wrapper" role="main">
+        <h1>Kulit Sintetis</h1>
+
+        <h2>Pengertian:</h2>
+        <p>Kulit sintetis (faux leather) adalah bahan buatan yang dirancang menyerupai kulit asli, biasanya terbuat dari
+            plastik (seperti PVC atau PU).</p>
+
+        <h2>Sifat/Karakteristik:</h2>
+        <ul>
+            <li>Tampilan mirip kulit asli namun lebih murah</li>
+            <li>Tahan air</li>
+            <li>Lebih ringan dari kulit asli</li>
+            <li>Tidak bernapas sebaik kulit asli (kurang nyaman jika dipakai lama)</li>
+            <li>Rentan mengelupas jika sudah tua atau terkena panas berlebih</li>
+        </ul>
+
+        <h2>Cara Perawatan:</h2>
+        <ul>
+            <li>Bersihkan dengan lap basah, jangan dicuci</li>
+            <li>Hindari paparan sinar matahari langsung terlalu lama</li>
+            <li>Simpan di tempat sejuk dan kering</li>
+            <li>Gunakan pelembab khusus kulit sintetis jika diperlukan</li>
+        </ul>
+
+        <h2>Contoh Penggunaan:</h2>
+        <ul>
+            <li>Jaket kulit sintetis</li>
+            <li>Sofa dan pelapis kursi</li>
+            <li>Sepatu dan sandal</li>
+            <li>Tas dan dompet</li>
+        </ul>
+
+        <a href="index.html" class="back-button" aria-label="Kembali ke Beranda">← Kembali ke Beranda</a>
+    </main>
+
+
+    <script>
+        // Dropdown toggle
+        const dropdownBtn = document.querySelector('.dropdown-button');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        dropdownBtn.addEventListener('click', () => {
+            const isExpanded = dropdownBtn.getAttribute('aria-expanded') === 'true';
+            dropdownBtn.setAttribute('aria-expanded', !isExpanded);
+            if (dropdownContent.classList.contains('show')) {
+                dropdownContent.classList.remove('show');
+                dropdownContent.setAttribute('aria-hidden', 'true');
+            } else {
+                dropdownContent.classList.add('show');
+                dropdownContent.setAttribute('aria-hidden', 'false');
+            }
+        });
+
+        // Submenu toggle
+        const ensiklopediaHeader = document.getElementById('ensiklopedia-header');
+        const ensiklopediaContent = document.getElementById('ensiklopedia-content');
+        const ensiklopediaIcon = document.getElementById('ensiklopedia-icon');
+
+        ensiklopediaHeader.addEventListener('click', () => {
+            const expanded = ensiklopediaHeader.getAttribute('aria-expanded') === 'true';
+            ensiklopediaHeader.setAttribute('aria-expanded', !expanded);
+            if (ensiklopediaContent.style.display === 'block') {
+                ensiklopediaContent.style.display = 'none';
+                ensiklopediaIcon.style.transform = 'rotate(0deg)';
+            } else {
+                ensiklopediaContent.style.display = 'block';
+                ensiklopediaIcon.style.transform = 'rotate(90deg)';
+            }
+        });
+
+        // Subcategory toggle
+        document.querySelectorAll('.subcategory-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const subcontent = header.nextElementSibling;
+                const expanded = header.getAttribute('aria-expanded') === 'true';
+                header.setAttribute('aria-expanded', !expanded);
+                if (subcontent.style.display === 'block') {
+                    subcontent.style.display = 'none';
+                    header.querySelector('.subcategory-icon').style.transform = 'rotate(0deg)';
+                } else {
+                    subcontent.style.display = 'block';
+                    header.querySelector('.subcategory-icon').style.transform = 'rotate(90deg)';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
